@@ -14,65 +14,69 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: getMediaQueryWidth(0.05, context),
-        ),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: getMediaQueryHeight(0.1, context),
-            ),
-            SvgPicture.asset(
-              'assets/facebooklogo.svg',
-            ),
-            SizedBox(
-              height: getMediaQueryHeight(0.05, context),
-            ),
-            myTextField(
-              context,
-              'Mobile Number Or Email Address',
-              false,
-            ),
-            SizedBox(
-              height: getMediaQueryHeight(0.02, context),
-            ),
-            myTextField(
-              context,
-              'Password',
-              true,
-            ),
-            SizedBox(
-              height: getMediaQueryHeight(0.07, context),
-            ),
-            loginButton(context),
-            SizedBox(
-              height: getMediaQueryHeight(0.02, context),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                'Forgotten Password?',
-                style: GoogleFonts.inter(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xff898F9C),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: getMediaQueryWidth(0.05, context),
+          ),
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: getMediaQueryHeight(0.1, context),
+              ),
+              SvgPicture.asset(
+                'assets/facebooklogo.svg',
+              ),
+              SizedBox(
+                height: getMediaQueryHeight(0.05, context),
+              ),
+              myTextField(
+                context,
+                'Mobile Number Or Email Address',
+                false,
+              ),
+              SizedBox(
+                height: getMediaQueryHeight(0.02, context),
+              ),
+              myTextField(
+                context,
+                'Password',
+                true,
+              ),
+              SizedBox(
+                height: getMediaQueryHeight(0.07, context),
+              ),
+              loginButton(context),
+              SizedBox(
+                height: getMediaQueryHeight(0.02, context),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Forgotten Password?',
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xff898F9C),
+                  ),
                 ),
               ),
-            ),
-            const Spacer(),
-            createAccount(context),
-            SizedBox(
-              height: getMediaQueryHeight(0.02, context),
-            ),
-            SvgPicture.asset('assets/metalogo.svg'),
-            SizedBox(
-              height: getMediaQueryHeight(0.03, context),
-            ),
-          ],
+              SizedBox(
+                height: getMediaQueryHeight(0.21, context),
+              ),
+              createAccount(context),
+              SizedBox(
+                height: getMediaQueryHeight(0.02, context),
+              ),
+              SvgPicture.asset('assets/metalogo.svg'),
+              SizedBox(
+                height: getMediaQueryHeight(0.03, context),
+              ),
+            ],
+          ),
         ),
       ),
     );
