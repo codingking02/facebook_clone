@@ -78,7 +78,9 @@ Widget loginButton(BuildContext context) {
     width: double.infinity,
     height: getMediaQueryHeight(0.06, context),
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, 'home');
+      },
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
         backgroundColor: const Color(0xff1877F2),
