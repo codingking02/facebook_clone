@@ -106,46 +106,54 @@ class _HomeScreenState extends State<HomeScreen> {
               thickness: 2,
               color: Color(0xff898F9C),
             ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              height: getMediaQueryHeight(0.23, context),
-              child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    width: getMediaQueryWidth(0.03, context),
-                  );
-                },
-                scrollDirection: Axis.horizontal,
-                itemCount: stories.length + 1,
-                itemBuilder: (context, index) {
-                  return index == 0
-                      ? getAddStory(
-                          context,
-                        )
-                      : getStory(
-                          context,
-                          stories[index - 1].mainImage,
-                          stories[index - 1].secondoaryImage,
-                        );
-                },
-              ),
-            ),
-            const Divider(
-              thickness: 2,
-              color: Color(0xff898F9C),
-            ),
             Expanded(
-              child: ListView.builder(
-                itemCount: posts.length,
-                itemBuilder: (context, index) {
-                  return getPost(
-                    context,
-                    posts[index].profile,
-                    posts[index].image,
-                  );
-                },
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      height: getMediaQueryHeight(0.23, context),
+                      child: ListView.separated(
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            width: getMediaQueryWidth(0.03, context),
+                          );
+                        },
+                        scrollDirection: Axis.horizontal,
+                        itemCount: stories.length + 1,
+                        itemBuilder: (context, index) {
+                          return index == 0
+                              ? getAddStory(
+                                  context,
+                                )
+                              : getStory(
+                                  context,
+                                  stories[index - 1].mainImage,
+                                  stories[index - 1].secondoaryImage,
+                                );
+                        },
+                      ),
+                    ),
+                    const Divider(
+                      thickness: 2,
+                      color: Color(0xff898F9C),
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: posts.length,
+                      itemBuilder: (context, index) {
+                        return getPost(
+                          context,
+                          posts[index].profile,
+                          posts[index].image,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
